@@ -1,16 +1,27 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './layouts/default/default.component';
+import { CardComponent } from './modules/card/card.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 
-const routes: Routes = [{
-  path: '',
-  component: DefaultComponent,
-  children: [{
+const routes: Routes = [
+  {
     path: '',
-    component: DashboardComponent,
-  }]
-}];
+    component: DefaultComponent,
+    children: [
+      {
+        path: '',
+        component: DashboardComponent,
+        children: [
+          {
+            path: '',
+            component: CardComponent,
+          },
+        ],
+      },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

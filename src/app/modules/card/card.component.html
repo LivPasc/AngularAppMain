@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-header>
+      <h1>
+        Values from microcontroller: {{ valuesModel.microcontrollerID }} from:
+        {{ valuesModel.dateTime | date:'dd-MM-yyyy' }}
+      </h1>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Temperature: {{ valuesModel.temperature }} °C</p>
+      <p>Humidity: {{ valuesModel.humidity }} %</p>
+      <p>Dust: {{ valuesModel.dust }} psf</p>
+      <p>Is door closed: {{ valuesModel.doorOpen }}</p>
+      <p>Power: {{ valuesModel.power }} A</p>
+    </mat-card-content>
+  </mat-card>
