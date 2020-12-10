@@ -1,16 +1,21 @@
+<div class="buttons-container">
   <mat-form-field appearance="fill">
     <mat-label>Controller</mat-label>
     <mat-select [formControl]="controller">
       <mat-option>None</mat-option>
-      <mat-option *ngFor="let controller of controllers" (click)="addCard()" [value]="controller">{{controller}}</mat-option>
+      <mat-option
+        *ngFor="let controller of controllers"
+        (click)="addCard()"
+        [value]="controller"
+        >{{ controller }}</mat-option
+      >
     </mat-select>
   </mat-form-field>
-  
+
   <!-- <button mat-raised-button (click)="addCard()">Add Card</button> -->
   <button mat-raised-button (click)="deleteCards()">Clear All Cards</button>
-  
-  
-  <div class="cardsWrapper">
-    <app-card *ngFor="let card of cards" [blockCards]="cards">
-    </app-card>
-  </div>
+</div>
+
+<div class="cardsWrapper">
+  <app-card *ngFor="let card of cards" [blockCards]="cards"> </app-card>
+</div>

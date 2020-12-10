@@ -1,12 +1,12 @@
 <mat-toolbar class="navbar">
   <mat-toolbar-row>
     <mat-list-item>
-      <span><a mat-button routerLink="">Microcontroller Management System</a></span>
+      <span><a mat-button (click) = "goToHomePage()">Microcontroller Management System</a></span>
     </mat-list-item>
     <mat-list-item fxFlex fxLayout='row' fxLayoutAlign='flex-end'>
         <mat-form-field class="form" appearance="fill" floatLabel="never" color="primary">
           <mat-label>Auto-refresh: </mat-label>
-          <mat-select [(ngModel)]="selectedValue" name="time" onselect="refreshComponents()">
+          <mat-select [(value)]="selectedValue" [(ngModel)]="selectedValue" name="time" (selectionChange)="refreshComponents()">
             <mat-option *ngFor="let time of timer" [value]="time.value">
               {{ time.viewValue }}
             </mat-option>

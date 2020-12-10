@@ -1,4 +1,5 @@
 export class ValuesModel {
+    public id: number;
     public dateTime: Date;
     public microcontrollerID: number;
     public temperature: number;

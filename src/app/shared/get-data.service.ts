@@ -14,4 +14,8 @@ export class GetDataService {
   getData(id: number): Observable<ValuesModel> {
     return this.http.get<ValuesModel>(`${this.API}/${id}`);
   }
+
+  getDataLast(id: number): Observable<ValuesModel[]> {
+    return this.http.get<ValuesModel[]>(`${this.API}/data/${id}`);
+  }
 }

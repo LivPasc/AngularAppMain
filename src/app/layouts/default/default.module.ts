@@ -8,19 +8,23 @@ import { CardComponent } from 'src/app/modules/card/card.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CardDetailsComponent } from 'src/app/modules/card-details/card-details.component';
+import {MatTableModule} from '@angular/material/table';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
     CardComponent,
+    CardDetailsComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +39,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     FormsModule,
     ReactiveFormsModule,
-  ]
+    FlexLayoutModule,
+    MatSnackBarModule,
+    MatTableModule,
+    HighchartsChartModule,
+  ],
 })
-export class DefaultModule { }
+export class DefaultModule {}

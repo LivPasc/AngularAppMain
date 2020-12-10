@@ -1,8 +1,26 @@
 .cardsWrapper {
-    display: flex;
-    overflow: auto;
-    background-color: blue;
-    padding: 20px 0;
-    margin: 10px 0 0 0;
-    min-height: 305px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: auto;
+  background-color: lightgrey;
+  padding: 20px 0;
+  margin: 10px 0 0 0;
+  min-height: 305px;
+}
+
+.buttons-container {
+  margin-top: 20px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  height: 51px;
+  width: 400px;
+  mat-form-field {
+    box-shadow: 1px 1px 2px gray;
   }
+}
+
+app-card {
+  max-width: 500px;
+}
