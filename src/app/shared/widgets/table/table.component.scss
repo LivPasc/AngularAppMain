@@ -1,0 +1,12 @@
+:host ::ng-deep .mat-sort-header-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  table {
+    text-align: center !important;
+    width: 100%;
+  }
+  th.mat-header-cell {
+    text-align: center !important;
+  }

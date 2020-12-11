@@ -1,0 +1,45 @@
+<table mat-table [dataSource]="microcontrollerData" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="micId">
+      <th mat-header-cell *matHeaderCellDef> Microcontroller Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.microcontrollerID}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date Created </th>
+      <td mat-cell *matCellDef="let element"> {{element.dateTime | date: "dd-MM-yyyy hh:mm:ss"}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="temperature">
+      <th mat-header-cell *matHeaderCellDef> Temporature (°C) </th>
+      <td mat-cell *matCellDef="let element"> {{element.temperature}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="humidity">
+        <th mat-header-cell *matHeaderCellDef> Humidity (%) </th>
+        <td mat-cell *matCellDef="let element"> {{element.humidity}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dust">
+        <th mat-header-cell *matHeaderCellDef> Dust (psf) </th>
+        <td mat-cell *matCellDef="let element"> {{element.dust}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="door">
+        <th mat-header-cell *matHeaderCellDef> Is door closed </th>
+        <td mat-cell *matCellDef="let element"> {{element.doorOpen}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="power">
+        <th mat-header-cell *matHeaderCellDef> Power (A) </th>
+        <td mat-cell *matCellDef="let element"> {{element.power}} </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

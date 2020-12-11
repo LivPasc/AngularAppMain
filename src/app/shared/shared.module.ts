@@ -11,11 +11,17 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { HttpClientModule } from '@angular/common/http';
+import { TimeSeriesChartComponent } from './widgets/time-series-chart/time-series-chart.component';
+import { TableComponent } from './widgets/table/table.component';
+import { MatTableModule } from '@angular/material/table';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
+    TimeSeriesChartComponent,
+    TableComponent,
   ],
   imports: [
     CommonModule,
@@ -28,10 +34,15 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatDividerModule,
     HttpClientModule,
+    MatTableModule,
+    HighchartsChartModule,
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
+    TimeSeriesChartComponent,
+    TableComponent,
+    MatDividerModule
   ]
 })
 export class SharedModule { }
