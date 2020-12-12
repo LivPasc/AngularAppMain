@@ -40,6 +40,12 @@ export class HeaderComponent implements OnInit {
     this._router.navigateByUrl('/');
   }
 
+  public goToNotification(): void {
+    localStorage.removeItem('autorefresh');
+    this.selectedValue = 0;
+    this._router.navigateByUrl('/notification');
+  }
+
   public refreshComponents(): void {
     localStorage.setItem('autorefresh', JSON.stringify(this.selectedValue));
     if (this.subscribed) this.updateSubscription.unsubscribe();

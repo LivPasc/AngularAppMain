@@ -18,6 +18,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CardDetailsComponent } from 'src/app/modules/card-details/card-details.component';
 import {MatTableModule} from '@angular/material/table';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatetimepickerModule, MatNativeDatetimeModule } from '@mat-datetimepicker/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { NotificationComponent } from 'src/app/modules/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +30,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
     DashboardComponent,
     CardComponent,
     CardDetailsComponent,
+    NotificationComponent,
   ],
   imports: [
     CommonModule,
@@ -43,6 +49,11 @@ import { HighchartsChartModule } from 'highcharts-angular';
     MatSnackBarModule,
     MatTableModule,
     HighchartsChartModule,
+    MatDatepickerModule,
+    MatNativeDatetimeModule,
+    MatDatetimepickerModule,
+    HttpClientModule,
+    MatDialogModule,
   ],
 })
 export class DefaultModule {}
