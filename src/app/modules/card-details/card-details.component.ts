@@ -11,7 +11,10 @@ import { Charts } from 'src/app/Charts';
 })
 export class CardDetailsComponent implements OnInit {
   public microcontrollerData: ValuesModel[];
-  public firstData: Charts[];
+  public firstData: any[];
+  public humidityData: any[];
+  public powerData: any[];
+  public valuesModel: ValuesModel;
 
   constructor(
     private getDataService: GetDataService,
@@ -27,15 +30,36 @@ export class CardDetailsComponent implements OnInit {
     this.getDataService.getDataLast(id).subscribe((e) => {
       this.microcontrollerData = e;
       this.mapValuesFirstData(e);
+      this.mapValuesHumidity(e);
+      this.mapValuesPower(e);
+      this.valuesModel = e[e.length-1];
     });
   }
+
   mapValuesFirstData(e: ValuesModel[]) {
-    this.firstData = []
-    // e.map((x) => {
-    //   let arr = new Array(2);
-    //   arr = [new Date(x.dateTime), x.temperature]
-    //   this.firstData.push(arr);
-    // });
-    e.forEach(m => this.firstData.push(new Charts(m.dateTime, m.temperature)))
+    this.firstData = [];
+    e.map((x) => {
+      let arr = new Array();
+      arr = [new Date(x.dateTime).getTime() + 60 * 60 * 1000, x.temperature];
+      this.firstData.push(arr);
+    });
+  }
+
+  mapValuesHumidity(e: ValuesModel[]) {
+    this.humidityData = [];
+    e.map((x) => {
+      let arr = new Array();
+      arr = [new Date(x.dateTime).getTime() + 60 * 60 * 1000, x.humidity];
+      this.humidityData.push(arr);
+    });
+  }
+
+  mapValuesPower(e: ValuesModel[]) {
+    this.powerData = [];
+    e.map((x) => {
+      let arr = new Array();
+      arr = [new Date(x.dateTime).getTime() + 60 * 60 * 1000, x.power];
+      this.powerData.push(arr);
+    });
   }
 }

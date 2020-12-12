@@ -1,14 +1,11 @@
 import {
   AfterViewInit,
   Component,
-  ElementRef,
   Input,
   OnInit,
-  ViewChild,
 } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import { Chart } from 'chart.js';
-import { Charts } from 'src/app/Charts';
+import HC_exporting from 'highcharts/modules/exporting';
 
 @Component({
   selector: 'app-time-series-chart',
@@ -16,71 +13,79 @@ import { Charts } from 'src/app/Charts';
   styleUrls: ['./time-series-chart.component.scss'],
 })
 export class TimeSeriesChartComponent implements OnInit, AfterViewInit {
-  @Input() data: Charts[] = [];
+  @Input() data: any[] = [];
+  @Input() valueName: string;
 
-  @ViewChild('mychart') mychart;
+  Highcharts = Highcharts;
+  chartOptions = {};
 
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.data);
-    if(this.data != null && this.data != undefined){
-    const dataset = this.data.map(x => x.value);
-    const date = this.data.map(x => x.dateTime);
-    this.buildChart(date,dataset);}
+    this.buildChart();
   }
 
-  ngAfterViewInit(): void {
-  }
+  ngAfterViewInit(): void {}
 
-  private buildChart(label: Date[], dataset: number[]) {
-    console.log(dataset);
-    console.log(label);
-
-    const canvas = <HTMLCanvasElement>document.getElementById('myChart');
-    const ctx = canvas.getContext('2d');
-    this.mychart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: label,
-        datasets: [
-          {
-            label: 'Temperature in °C',
-            backgroundColor: 'rgba(255,221,50,0.2)',
-            borderColor: 'rgba(255,221,50,1)',
-            data: dataset,
-          },
-        ],
-      },
-      options: {
+  private buildChart() {
+    this.chartOptions = {
+      chart: {
+        zoomType: 'x'
+    },
+    title: {
+        text: `System ${this.valueName}`
+    },
+    subtitle: {
+        text: document.ontouchstart === undefined ?
+            'Click and drag in the plot area to zoom in' :
+            'Pinch the chart to zoom in'
+    },
+    xAxis: {
+        type: 'datetime',
+    },
+    yAxis: {
         title: {
-          display: true,
-          text: 'Temperature',
-        },
-        labels: ['Temperature in °C'],
-        legend: {
-          display: true,
-          legendText: ['Temperature in °C'],
-        },
-        scales: {
-          xAxes: [
-            {
-              type: 'time',
-              time: {
-                displayFormats: {
-                  quarter: 'MMM YYYY',
+            text: this.valueName
+        }
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        area: {
+            fillColor: {
+                linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
                 },
-              },
-              display: true,
+                stops: [
+                    [0, Highcharts.getOptions().colors[0]],
+                    [1, new Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                ]
             },
-          ],
-          yAxes: [
-            {
-              display: true,
+            marker: {
+                radius: 2
             },
-          ],
-        },
-      },
-    });
+            lineWidth: 1,
+            states: {
+                hover: {
+                    lineWidth: 1
+                }
+            },
+            threshold: null
+        }
+    },
+
+    series: [{
+        type: 'area',
+        name: this.valueName,
+        data: this.data
+    }]
+    };
+
+    HC_exporting(Highcharts);
+
   }
 }

@@ -15,6 +15,8 @@ import { TimeSeriesChartComponent } from './widgets/time-series-chart/time-serie
 import { TableComponent } from './widgets/table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
     MatDividerModule,
     HttpClientModule,
     MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     HighchartsChartModule,
   ],
   exports: [
