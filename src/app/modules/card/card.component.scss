@@ -1,5 +1,29 @@
-mat-card{
-    margin-bottom: 20px;
-    margin-left: 20px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+mat-card {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.contents {
+  display: flex;
+  justify-content: space-between;
+}
+
+.microcontroller-details {
+  margin-left: 2rem;
+}
+
+.status {
+  border-radius: 5px;
+  height: 100px;
+  width: 100px;
+  color: white;
+  display: flex;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  justify-content: center;
+  margin-top: 2rem;
+  margin-right: 3rem;
+  h1 {
+    margin-top: 2rem;
+  }
 }

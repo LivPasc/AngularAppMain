@@ -5,11 +5,14 @@
   
   table {
     text-align: center !important;
-    min-width: 500px;
-    overflow-x: scroll !important;
   }
   th.mat-header-cell {
     text-align: center !important;
+  }
+  .table-container{
+    min-width: 15rem;
+    overflow: auto !important;
+    box-shadow: 0 0 6px rgba(0,0,0,0.16), 0 0 6px rgba(0,0,0,0.23);
   }
 
   mat-paginator {
