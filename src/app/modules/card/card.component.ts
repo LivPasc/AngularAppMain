@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GetDataService } from 'src/app/shared/get-data.service';
 import { ValuesModel } from 'src/app/values-model';
 
 @Component({
@@ -11,7 +12,7 @@ export class CardComponent implements OnInit {
   @Input() blockCards: ValuesModel[];
   @Input('selectedValue') selectedValue: number;
 
-  constructor(private _router: Router) {}
+  constructor(private _router: Router,private getDataService: GetDataService,) {}
 
   public valuesModel: ValuesModel;
   public statusValue: string;
@@ -49,8 +50,10 @@ export class CardComponent implements OnInit {
 
   private createCards(): void {
     this.blockCards.forEach((x) => {
-      this.valuesModel = x;
-      this.setStatus(x);
+      this.getDataService.getData(x.microcontrollerID).subscribe(c=>{
+        this.valuesModel = c;
+        this.setStatus(this.valuesModel);
+      });
     });
   }
 
