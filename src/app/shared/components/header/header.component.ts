@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   public selectedValue: number = 0;
   public dropdownItem: string = `Auto-refresh: ${this.selectedValue}`;
   public subscribed: boolean = false;
+  protected token:string;
 
   private updateSubscription: Subscription;
 
@@ -62,4 +63,13 @@ export class HeaderComponent implements OnInit {
   public hitRefresh(): void {
     window.location.reload();
   }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('session');
+    localStorage.removeItem('autorefresh')
+    this.token = localStorage.getItem('token');
+    this._router.navigate(['/login']);
+  }
+
 }

@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatetimepickerModule, MatNativeDatetimeModule } from '@mat-datetimepicker/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { NotificationComponent } from 'src/app/modules/notification/notification.component';
+import { LoginComponent } from 'src/app/modules/login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NotificationComponent } from 'src/app/modules/notification/notification
     DashboardComponent,
     CardComponent,
     CardDetailsComponent,
-    NotificationComponent,
+    NotificationComponent, 
+    LoginComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,10 @@
+
+
+<div class="box">
+    <h2>Log In</h2>
+    <form class="box-form" action="" #form='ngForm' (submit)="onSubmit(form)" >
+       <input type="username" placeholder="Username" #UserName="ngModel" name="username" [(ngModel)]="formModel.username" required>
+       <input type="password" placeholder="Password" type="password" #Password="ngModel" name="password" [(ngModel)]="formModel.password" required>
+       <button type="submit" [disabled]="form.invalid">Log in</button>
+    </form>
+ </div>
