@@ -24,6 +24,9 @@ import { MatDatetimepickerModule, MatNativeDatetimeModule } from '@mat-datetimep
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { NotificationComponent } from 'src/app/modules/notification/notification.component';
 import { LoginComponent } from 'src/app/modules/login/login.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ import { LoginComponent } from 'src/app/modules/login/login.component';
   imports: [
     CommonModule,
     RouterModule,
+    BrowserModule,
     SharedModule,
     MatSelectModule,
     MatOptionModule,
@@ -50,6 +54,8 @@ import { LoginComponent } from 'src/app/modules/login/login.component';
     FlexLayoutModule,
     MatSnackBarModule,
     MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     HighchartsChartModule,
     MatDatepickerModule,
     MatNativeDatetimeModule,
@@ -57,5 +63,10 @@ import { LoginComponent } from 'src/app/modules/login/login.component';
     HttpClientModule,
     MatDialogModule,
   ],
+  exports: [
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+  ]
 })
 export class DefaultModule {}

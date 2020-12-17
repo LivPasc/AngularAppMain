@@ -17,5 +17,5 @@
 </div>
 
 <div class="cardsWrapper">
-  <app-card *ngFor="let card of cards" [blockCards]="cards"> </app-card>
+  <app-card fxFlexOrder="{{card.microcontrollerID}}" *ngFor="let card of cards" [blockCards]="cards"> </app-card>
 </div>

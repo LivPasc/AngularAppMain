@@ -17,4 +17,8 @@ export class PostNotificationService {
   ): Observable<NotificationModel> {
     return this.http.post<NotificationModel>(this.baseURL, notificationForm);
   }
+
+  getNotificationMessage(): Observable<NotificationModel[]> {
+    return this.http.get<NotificationModel[]>(this.baseURL);
+  }
 }

@@ -18,12 +18,12 @@ import { ValuesModel } from 'src/app/values-model';
 export class TableComponent implements OnInit, AfterViewInit {
   public displayedColumns: string[] = [
     'id',
-    'micId',
-    'date',
+    'microcontrollerID',
+    'dateTime',
     'temperature',
     'humidity',
     'dust',
-    'door',
+    'doorOpen',
     'power',
   ];
 

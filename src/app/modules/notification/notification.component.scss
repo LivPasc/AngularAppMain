@@ -1,14 +1,27 @@
 .example-form {
-    min-width: 75px;
-    max-width: 250px;
-    width: 100%;
+  margin-top: 30px;
+    width: 45%;
     height: 41%;
-    padding-top: 12rem;
-    padding-bottom: 12rem;
-    margin-left: 35%;
   }
   
   .example-full-width {
-    width: 24rem;
-    margin: auto;
+    width: 95%;
+  }
+
+  .table-elements {
+    width: 45%;
+    min-height: 31.3rem;
+  }
+
+  .table-container {
+    width: 100%;
+  }
+
+  table{
+    width: 100%;
+  }
+  .page-container {
+    padding-top: 12rem;
+    display: flex;
+    justify-content: space-around;
   }

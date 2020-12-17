@@ -71,7 +71,7 @@ export class CardDetailsComponent implements OnInit {
   private setStatus(valueModel: ValuesModel) {
     if (
       valueModel.temperature > 60 ||
-      valueModel.humidity > 60 ||
+      valueModel.humidity > 70 ||
       valueModel.dust > 15
     ) {
       this.statusValue = 'Critical';
@@ -79,8 +79,8 @@ export class CardDetailsComponent implements OnInit {
     } else if (
       (valueModel.temperature < 60 &&
       valueModel.temperature > 40) ||
-      (valueModel.humidity < 60 &&
-      valueModel.humidity > 30) ||
+      (valueModel.humidity < 70 &&
+      valueModel.humidity > 50) ||
       valueModel.doorOpen != true ||
       valueModel.dust > 0
     ) {
